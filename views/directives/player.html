@@ -1,0 +1,44 @@
+<!-- init soundManager2 player -->
+<sound-manager></sound-manager>
+
+<div class="playing-cover">
+	<img src="{{ currentPlaying.coverUrl }}" alt="Album cover">
+</div>
+<div class="playing-infos">
+	<div class="playing-title" ng-if="!freeze">
+		<p>{{ currentPlaying.title }}</p>
+	</div>
+	<div class="playing-artist" ng-if="!freeze">
+		<p>{{ currentPlaying.artist }}</p>
+	</div>
+	<div class="freeze" ng-if="freeze">
+		<p>Please wait {{ (90000 - time)/1000 | secondsToDateTime | date:'mm:ss' }} before resuming playback.</p>
+	</div>
+</div>
+<div class="controls" ng-if="!freeze">
+	<div class="reset">
+		<span class = "glyphicon glyphicon-step-backward"
+		aria-hidden = "true"
+		music-player = "play"
+		add-song = "currentPlaying">
+		</span>
+	</div>
+	<div class="play">
+		<span ng-if = "!isPlaying"
+		class = "glyphicon glyphicon-play"
+		aria-hidden = "true"
+		play-music>
+		</span>
+		<span ng-if = "isPlaying"
+		class = "glyphicon glyphicon-pause"
+		aria-hidden = "true"
+		pause-music>
+		</span>
+	</div>
+	<div class="stop">
+		<span class = "glyphicon glyphicon-stop"
+		aria-hidden = "true"
+		stop-music>
+		</span>
+	</div>
+</div>

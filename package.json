@@ -1,0 +1,24 @@
+{
+  "name": "angular-music-player",
+  "version": "0.0.1",
+  "description": "a simple music player",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dispix/angular-music-player.git"
+  },
+  "author": "dispix <dispyx@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dispix/angular-music-player/issues"
+  },
+  "homepage": "https://github.com/dispix/angular-music-player#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0"
+  }
+}

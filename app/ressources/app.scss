@@ -1,0 +1,175 @@
+// Font variable
+$font: 'Roboto';
+
+// Colors variables
+$grey: #303030;
+$lightGrey: #636363;
+$black: #1F1F1F;
+$white: #EDEDED;
+$blue: #2B78FB;
+$red: #b60000;
+
+// Dimensions variables
+$coverHeight: 150px;
+$infosHeight: 60px;
+$controlsHeight: 55px;
+$playHeight: 310px;
+$listHeight: calc(100vh - #{$playHeight});
+
+body {
+	font-family: $font;
+	background-color: $black;
+}
+
+.songs-wrapper {
+	width: 100%;
+	height: 100vh;
+	overflow-y: scroll;
+
+	&.small {
+		height: $listHeight;
+	}
+
+	.song {
+		width: 100%;
+		height: 100px;
+		display: inline-flex;
+
+		.song-cover {
+
+			span {
+				width: 100px;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				color: $blue;
+				font-size: 4.5rem;
+				top: 0;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+		}
+
+		.song-infos {
+			padding: 20px 0 20px 5px;
+			color: $white;
+			background: linear-gradient(to bottom, $black 30%,$grey 100%);
+			width: 100%;
+			font-size: 1.3rem;
+
+			a {
+				&:hover {
+					text-decoration: none;
+				}
+
+				.song-title {
+					font-weight: bold;
+					color: $white;
+					text-transform: uppercase;
+				}
+
+				.song-artist {
+					color: $white;
+				}
+			}
+		}
+	}
+
+	.seekBase {
+		height: 2px;
+		width: 100%;
+
+		.seekLoad {
+			height: 2px;
+			background-color: $red;
+		}
+	}
+
+	.freezeBase {
+		height: 2px;
+		width: 100%;
+
+		.freezeLoad {
+			height: 2px;
+			background-color: $blue;
+		}
+	}
+
+	.spacer {
+		height: 2px;
+		width: 100%;
+	}
+}
+
+
+.player-wrapper {
+	transition: all linear 0.5s;
+	width: 100%;
+	padding: 0;
+	background-color: $grey;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: $playHeight;
+	border-top: 1px solid $lightGrey;
+
+	.playing-cover {
+		padding: 20px 0 20px;
+
+		img {
+			width: 150px;
+			height: $coverHeight;
+			position: relative;
+			left: calc(50% - 75px);
+		}
+	}
+
+	.playing-infos {
+		text-align: center;
+		padding: 0 0 20px;
+		height: $infosHeight;
+
+		.playing-title p {
+			color: $white;
+			font-weight: bold;
+			text-transform: uppercase;
+			margin: 0;
+		}
+
+		.playing-artist p {
+			color: $white;
+			margin: 0;
+		}
+
+		.freeze p {
+			color: $white;
+			margin: 0;
+		}
+	}
+
+	.seekBase {
+		height: 5px;
+		width: 100%;
+
+		.seekLoad {
+			position: relative;
+			top: 3px;
+			height: 2px;
+			background-color: $red;
+		}
+	}
+
+	.controls {
+		border-top: 1px solid $lightGrey;
+		text-align: center;
+		font-size: 3rem;
+		color: $blue;
+		padding: 10px 0 0;
+		height: $controlsHeight;
+
+		div {
+			display: inline-block;
+		}
+	}
+}

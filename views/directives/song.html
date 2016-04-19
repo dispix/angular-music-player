@@ -1,0 +1,44 @@
+<div class="song">
+	<div class="song-cover">
+		<span 	ng-if = "song.id != currentPlaying.id && !freeze"
+				class = "glyphicon glyphicon-play"
+				aria-hidden = "true"
+				music-player = "play"
+				add-song = "song"
+				style = "background-image:url('{{ song.coverUrl }}')">
+		</span>
+		<span 	ng-if = "song.id == currentPlaying.id && !isPlaying && !freeze"
+				class = "glyphicon glyphicon-play"
+				aria-hidden = "true"
+				play-music
+				style = "background-image:url('{{ song.coverUrl }}')">
+		</span>
+		<span 	ng-if = "song.id == currentPlaying.id && isPlaying && !freeze"
+				class = "glyphicon glyphicon-pause"
+				aria-hidden = "true"
+				pause-music
+				style = "background-image:url('{{ song.coverUrl }}')">
+		</span>
+		<span 	ng-if = "freeze"
+				class = "glyphicon glyphicon-wait"
+				aria-hidden = "true"
+				style = "background-image:url('{{ song.coverUrl }}')">
+		</span>
+	</div>
+	<div class="song-infos">
+		<a ng-href="http://lesondier.com">
+			<p class="song-title">{{ song.title }}</p>
+			<p class="song-artist">{{ song.artist }}</p>
+		</a>
+	</div>
+</div>
+
+<div class="seekBase" ng-if="(song.id == currentPlaying.id) && !freeze">
+	<div class="seekLoad" ng-style="{ width : ( progress + '%' ) }"></div>
+</div>
+
+<div class="spacer" ng-if="(song.id != currentPlaying.id) && !freeze"></div>
+
+<div class="freezeBase" ng-if="freeze">
+	<div class="freezeLoad" ng-style="{ width : ( (90000 - time)/300 + '%' ) }"></div>
+</div>
